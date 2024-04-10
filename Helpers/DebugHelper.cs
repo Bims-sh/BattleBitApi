@@ -5,7 +5,7 @@ namespace BattleBitApi.Helpers;
 
 public class DebugHelper
 {
-    public static void StartPlayerDebug(BattleBitApiPlayer player, BattleBitServer server)
+    public static void StartPlayerDebug(BattleBitPlayer player, BattleBitServer server)
     {
         Task.Run(() =>
         {

@@ -15,7 +15,7 @@ public class RoleHelper
     
     public static List<ulong> Specials = new() { };
     
-    public static void SetPlayerRoles(BattleBitApiPlayer player)
+    public static void SetPlayerRoles(BattleBitPlayer player)
     {
         if (Admins.Contains(player.SteamID))
         {
