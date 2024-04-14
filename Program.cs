@@ -32,7 +32,7 @@ internal class Program
         AllowTrailingCommas = true
     };
 
-    private async void StartApi()
+    private void StartApi()
     {
         try
         {
