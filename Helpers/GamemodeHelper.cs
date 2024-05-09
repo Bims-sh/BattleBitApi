@@ -2,16 +2,32 @@
 
 public class GamemodeHelper
 {
-    private static List<string> GameModes { get; } = new()
+    private static List<string> Gamemodes { get; } = new()
     {
         "TDM",
-        "FFA",
+        "AAA",
+        "RUSH",
+        "CONQ",
         "DOMI",
+        "ELIM",
+        "INFCONQ",
+        "FRONTLINE",
+        "GUNGAMEFFA",
+        "FFA",
+        "GUNGAMETEAM",
+        "SUCIDERUSH",
+        "CATCH",
+        "INFECTED",
+        "CASHRUN",
+        "VOXELFORTIFY",
+        "VOXELTRENCH",
         "CTF",
+        "INVASION",
+        "ONELIFE"
     };
     
-    public static bool IsValidGameMode(string gm)
+    public static bool IsValidGamemode(string gm)
     {
-        return GameModes.Contains(gm.ToUpperInvariant());
+        return Gamemodes.Contains(gm.ToUpperInvariant());
     }
 }
