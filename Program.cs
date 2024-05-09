@@ -137,6 +137,52 @@ internal class Program
             .Build()
             .Bind(ServerConfiguration);
     }
+    
+    public static void SaveConfiguration(Configuration.ServerConfiguration serverConfigurationToSave)
+    {
+        File.WriteAllText("appsettings.json", JsonSerializer.Serialize(serverConfigurationToSave, JsonOptions));
+    }
+    
+    public static void ReloadConfiguration()
+    {
+        foreach (var Map in Server.MapRotation.GetMapRotation())
+        {
+            Server.MapRotation.RemoveFromRotation(Map);
+        }
+        
+        foreach (var GameMode in Server.GamemodeRotation.GetGamemodeRotation())
+        {
+            Server.GamemodeRotation.RemoveFromRotation(GameMode);
+        }
+
+        if (!ServerConfiguration.MapRotation.Any())
+        {
+            ServerConfiguration.MapRotation.Add("AZAGOR");
+            SaveConfiguration(ServerConfiguration);
+        }
+        
+        if (!ServerConfiguration.GameModeRotation.Any())
+        {
+            ServerConfiguration.GameModeRotation.Add("CONQ");
+            SaveConfiguration(ServerConfiguration);
+        }
+        
+        foreach (var Map in ServerConfiguration.MapRotation)
+        {
+            Server.MapRotation.AddToRotation(Map);
+        }
+        
+        foreach (var GameMode in ServerConfiguration.GameModeRotation)
+        {
+            Server.GamemodeRotation.AddToRotation(GameMode);
+        }
+        
+        new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", false, true)
+            .Build()
+            .Bind(ServerConfiguration);
+    }
 
     private void ValidateConfiguration()
     {
