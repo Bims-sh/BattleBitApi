@@ -150,9 +150,9 @@ internal class Program
             Server.MapRotation.RemoveFromRotation(Map);
         }
         
-        foreach (var GameMode in Server.GamemodeRotation.GetGamemodeRotation())
+        foreach (var Gamemode in Server.GamemodeRotation.GetGamemodeRotation())
         {
-            Server.GamemodeRotation.RemoveFromRotation(GameMode);
+            Server.GamemodeRotation.RemoveFromRotation(Gamemode);
         }
 
         if (!ServerConfiguration.MapRotation.Any())
@@ -161,9 +161,9 @@ internal class Program
             SaveConfiguration(ServerConfiguration);
         }
         
-        if (!ServerConfiguration.GameModeRotation.Any())
+        if (!ServerConfiguration.GamemodeRotation.Any())
         {
-            ServerConfiguration.GameModeRotation.Add("CONQ");
+            ServerConfiguration.GamemodeRotation.Add("CONQ");
             SaveConfiguration(ServerConfiguration);
         }
         
@@ -172,9 +172,9 @@ internal class Program
             Server.MapRotation.AddToRotation(Map);
         }
         
-        foreach (var GameMode in ServerConfiguration.GameModeRotation)
+        foreach (var Gamemode in ServerConfiguration.GamemodeRotation)
         {
-            Server.GamemodeRotation.AddToRotation(GameMode);
+            Server.GamemodeRotation.AddToRotation(Gamemode);
         }
         
         new ConfigurationBuilder()

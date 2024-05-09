@@ -16,6 +16,6 @@ public class Configuration
         [Required] public string ChatCommandPrefix { get; set; } = "!";
         public string Password { get; set; } = "";
         public List<string> MapRotation { get; set; } = new();
-        public List<string> GameModeRotation { get; set; } = new();
+        public List<string> GamemodeRotation { get; set; } = new();
     }
 }

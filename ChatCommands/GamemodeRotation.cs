@@ -4,9 +4,9 @@ using BattleBitApi.Helpers;
 
 namespace BattleBitApi.ChatCommands;
 
-public class GameModeCommand : ChatCommand
+public class GamemodeRotation : ChatCommand
 {
-    public GameModeCommand() : base(
+    public GamemodeRotation() : base(
         name: "gm",
         description: "Add, remove or list current gamemodes.",
         usage: "map <remove (r), add (a), list (ls), reload (rl)> [gamemode name]",
@@ -41,7 +41,7 @@ public class GameModeCommand : ChatCommand
                     }
 
                     var gamemodeToAdd = string.Join(" ", args).ToUpperInvariant();
-                    if (GamemodeHelper.IsValidGameMode(gamemodeToAdd))
+                    if (GamemodeHelper.IsValidGamemode(gamemodeToAdd))
                     {
                         if (!Server.GamemodeRotation.AddToRotation(gamemodeToAdd))
                         {
@@ -49,7 +49,7 @@ public class GameModeCommand : ChatCommand
                             return;
                         }
 
-                        Program.ServerConfiguration.GameModeRotation.Add(gamemodeToAdd);
+                        Program.ServerConfiguration.GamemodeRotation.Add(gamemodeToAdd);
                         Program.SaveConfiguration(Program.ServerConfiguration);
                         player.Message(
                             $"Added {RichTextHelper.Bold(true)}{RichTextHelper.FromColorName("Gold")}{gamemodeToAdd}{RichTextHelper.Color()}{RichTextHelper.Bold(false)} to the rotation.");
@@ -70,7 +70,7 @@ public class GameModeCommand : ChatCommand
                     }
 
                     var gamemodeToRemove = string.Join(" ", args).ToUpperInvariant();
-                    if (GamemodeHelper.IsValidGameMode(gamemodeToRemove))
+                    if (GamemodeHelper.IsValidGamemode(gamemodeToRemove))
                     {
                         if (!Server.GamemodeRotation.RemoveFromRotation(gamemodeToRemove))
                         {
@@ -78,7 +78,7 @@ public class GameModeCommand : ChatCommand
                             return;
                         }
 
-                        Program.ServerConfiguration.GameModeRotation.Remove(gamemodeToRemove);
+                        Program.ServerConfiguration.GamemodeRotation.Remove(gamemodeToRemove);
                         Program.SaveConfiguration(Program.ServerConfiguration);
                         player.Message(
                             $"Removed {RichTextHelper.Bold(true)}{RichTextHelper.FromColorName("Gold")}{gamemodeToRemove}{RichTextHelper.Color()}{RichTextHelper.Bold(false)} from the rotation.");

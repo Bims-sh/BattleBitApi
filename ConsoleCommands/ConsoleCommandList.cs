@@ -9,6 +9,8 @@ public class ConsoleCommandList
         new Ban(),
         new PlayerList(),
         new SendMessage(),
-        new SendAnnouncement()
+        new SendAnnouncement(),
+        new GamemodeRotation(),
+        new MapRotation()
     };
 }

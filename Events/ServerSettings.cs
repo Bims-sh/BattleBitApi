@@ -12,9 +12,9 @@ public class ServerSettings : Event
             Server.MapRotation.RemoveFromRotation(Map);
         }
         
-        foreach (var GameMode in Server.GamemodeRotation.GetGamemodeRotation())
+        foreach (var Gamemode in Server.GamemodeRotation.GetGamemodeRotation())
         {
-            Server.GamemodeRotation.RemoveFromRotation(GameMode);
+            Server.GamemodeRotation.RemoveFromRotation(Gamemode);
         }
         
         foreach (var Map in Program.ServerConfiguration.MapRotation)
@@ -22,9 +22,9 @@ public class ServerSettings : Event
             Server.MapRotation.AddToRotation(Map);
         }
         
-        foreach (var GameMode in Program.ServerConfiguration.GameModeRotation)
+        foreach (var Gamemode in Program.ServerConfiguration.GamemodeRotation)
         {
-            Server.GamemodeRotation.AddToRotation(GameMode);
+            Server.GamemodeRotation.AddToRotation(Gamemode);
         }
         
         if (!Server.MapRotation.GetMapRotation().Any())

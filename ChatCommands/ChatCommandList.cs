@@ -15,7 +15,7 @@ public class ChatCommandList
     public static List<ChatCommand> ModeratorCommands { get; } = new()
     {
         new SendAnnouncement(),
-        new MapCommand(),
-        new GameModeCommand()
+        new MapRotation(),
+        new GamemodeRotation()
     };
 }
